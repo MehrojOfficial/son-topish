@@ -1,2 +1,3 @@
-# son-topish
- Son topish o'yini | Python 
+# Son Topish O'yini
+ Programmer: Mehroj Majidov 
+ Github: https://github.com/MehrojOfficial
