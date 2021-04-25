@@ -12,7 +12,7 @@ from random import randint
 def son_top(x=10):
     """Kompyuter o'ylagan sonni foydalanuvchi topadigan funksiya"""
     komp_son = randint(0,x)
-    print(f"Keling, son topish o'yini o'ylaymiz!",
+    print(f"Keling, son topish o'yini o'ynaymiz!",
       f"\n0 dan {x} gacha oraliqda bitta son o'yladim. Topa olasizmi?")
     komp_natija = True
     komp_xato = 0
@@ -38,14 +38,14 @@ def son_top(x=10):
 
 def pc_top():
     """Foydalanuvchi o'ylagan sonni kompyuter topadigan funksiya"""
-    input(f"\nAna endi sizning navbatingiz. Biror son o'ylang va tayyor bo'lgach ENTER ni bosing ")
+    input(f"\nEndi sizning navbatingiz. Biror son o'ylang va tayyor bo'lgach ENTER ni bosing ")
     player_natija = True
     player_xato = 0
     x=0
     y=10
     while player_natija:
         player_son = randint(x,y)
-        player_check = input(f"Siz {player_son} ni o'yladingimi ? \nTo'g'ri bo'lsa T ni kiriting \nKattaroq son o'ylagan bo'lsangiz + ni kiriting \nKichikroq son o'ylagan bo'lsangiz esa - ni kiriting\n>>> ")
+        player_check = input(f"Siz {player_son} ni o'yladingizmi ? \nTo'g'ri bo'lsa T ni kiriting \nKattaroq son o'ylagan bo'lsangiz + ni kiriting \nKichikroq son o'ylagan bo'lsangiz esa - ni kiriting\n>>> ")
         if player_check == "T" or player_check == "t":
             player_natija = False
         elif player_check == "+":
