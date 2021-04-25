@@ -1,3 +1,2 @@
 # Son Topish O'yini
- Programmer: Mehroj Majidov 
- Github: https://github.com/MehrojOfficial
+ Programmer: Mehroj Majidov \nGithub: https://github.com/MehrojOfficial
