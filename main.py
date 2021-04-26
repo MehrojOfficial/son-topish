@@ -7,6 +7,88 @@ Github: https://github.com/MehrojOfficial
 Title: "Son topish o'yini"
 </>
 """
-#from data import *
+from random import randint    
+
+def son_top(x=10):
+    """Kompyuter o'ylagan sonni foydalanuvchi topadigan funksiya"""
+    komp_son = randint(0,x)
+    print(f"Keling, son topish o'yini o'ynaymiz!",
+      f"\n0 dan {x} gacha oraliqda bitta son o'yladim. Topa olasizmi?")
+    komp_natija = True
+    komp_xato = 0
+    while komp_natija:
+        komp_check = int(input(">>> "))
+        if komp_check == komp_son:
+            komp_natija = False
+        if komp_check != komp_son:
+            if komp_check < komp_son:
+                print(f"Xato. Men o'ylagan son {komp_check} dan katta. Yana harakat qiling")
+                komp_xato += 1
+            elif komp_check > komp_son:
+                print(f"Xato. Men o'ylagan son {komp_check} dan kichik. Yana harakat qiling")
+                komp_xato += 1
+    if komp_natija == False:
+        if komp_xato == 0:
+            print(f"Tabriklayman! To'g'ri va aniq topdingiz! {komp_son} sonini o'ylagandim. \nQoyil, umuman xato qilmadingiz.")
+        elif komp_xato != 0 and komp_xato < 4:
+            print(f"Tabriklayman! To'g'ri topdingiz! {komp_son} sonini o'ylagandim. \nQoyil, bor-yo'g'i {komp_xato} marta adashdingiz xolos. ")
+        elif komp_xato != 0 and komp_xato >= 4:
+            print(f"Tabriklayman! To'g'ri topdingiz! {komp_son} sonini o'ylagandim. \n{komp_xato} marta adashdingiz.")
+    return komp_xato
+
+def pc_top():
+    """Foydalanuvchi o'ylagan sonni kompyuter topadigan funksiya"""
+    input(f"\nEndi sizning navbatingiz. Biror son o'ylang va tayyor bo'lgach ENTER ni bosing ")
+    player_natija = True
+    player_xato = 0
+    x=0
+    y=10
+    while player_natija:
+        player_son = randint(x,y)
+        player_check = input(f"Siz {player_son} ni o'yladingizmi ? \nTo'g'ri (T) | Kattaroq son (+) | Kichikroq son (-)\n>>> ")
+        if player_check == "T" or player_check == "t":
+            player_natija = False
+        elif player_check == "+":
+            x = player_son + 1 
+            player_xato += 1
+        elif player_check == "-":
+            y = player_son - 1
+            player_xato += 1
+    if player_natija == False:
+        if player_xato == 0:
+            print(f"\nSiz o'ylagan sonni topishda umuman adashmadim.")
+        elif player_xato < 4:
+            print(f"\nSiz o'ylagan sonni topishda bor-yo'g'i {player_xato} martagina adashdim.")
+        elif player_xato >= 4:
+            print(f"\nSiz o'ylagan sonni topishda {player_xato} marta adashdim.")
+    return player_xato
+
+def winner():
+    """Kim kam xato qilganiga qarab g'olibni e'lon qiluvchi funksiya"""
+    if first < second:
+        print(f"\nTabriklayman!!! Siz yutdingiz! \nMen {second} marta, siz esa {first} marta adashdingiz.")
+    elif first > second:
+        print(f"\nTabriklang !!! Men yutdim! \nMen {second} marta, siz esa {first} marta adashdingiz. ")
+    elif first == second:
+        print(f"\nDurrang! Ikkimiz ham yutdik! \nSiz ham, men ham {second} martadan xato qildik.")
 
 
+while True:    
+    starting = input("O'yini boshlashga tayyormisiz? Ha(1) yoki Yo'q(0)\n>>>>")
+    if starting.title == "Ha" or starting.title == "Xa" or starting == "1":
+        first = son_top()
+        second = pc_top()
+        winner()
+    else:
+        print("O'yin yakunladi.")
+        break     
+        
+    yakun = input("\n\nYana o'ynaymizmi ? Ha(1) yoki Yo'q(0)\n>>>>")
+    if yakun.title == "Ha" or yakun.title =="Xa" or yakun =="1":
+        print("Bo'lmasam qayta o'ynaymiz. Qani boshladik.\n\n")
+        first = son_top()
+        second = pc_top()
+        winner()
+    else:
+        print("O'yin yakunlandi. Ishtirokingiz uchun rahmat !!!")
+        break
