@@ -7,6 +7,6 @@ Github: https://github.com/MehrojOfficial
 Title: "Son topish o'yini"
 </>
 """
-from data import *
+#from data import *
 
-winner()
+

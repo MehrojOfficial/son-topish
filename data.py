@@ -7,7 +7,7 @@ Github: https://github.com/MehrojOfficial
 Title: "Son topish o'yini"
 </>
 """
-from random import randint
+from random import randint    
 
 def son_top(x=10):
     """Kompyuter o'ylagan sonni foydalanuvchi topadigan funksiya"""
@@ -45,7 +45,7 @@ def pc_top():
     y=10
     while player_natija:
         player_son = randint(x,y)
-        player_check = input(f"Siz {player_son} ni o'yladingizmi ? \nTo'g'ri bo'lsa T ni kiriting \nKattaroq son o'ylagan bo'lsangiz + ni kiriting \nKichikroq son o'ylagan bo'lsangiz esa - ni kiriting\n>>> ")
+        player_check = input(f"Siz {player_son} ni o'yladingizmi ? \nTo'g'ri (T) | Kattaroq son (+) | Kichikroq son (-)\n>>> ")
         if player_check == "T" or player_check == "t":
             player_natija = False
         elif player_check == "+":
@@ -63,9 +63,6 @@ def pc_top():
             print(f"\nSiz o'ylagan sonni topishda {player_xato} marta adashdim.")
     return player_xato
 
-first = son_top()
-second = pc_top()
-
 def winner():
     """Kim kam xato qilganiga qarab g'olibni e'lon qiluvchi funksiya"""
     if first < second:
@@ -74,3 +71,24 @@ def winner():
         print(f"\nTabriklang !!! Men yutdim! \nMen {second} marta, siz esa {first} marta adashdingiz. ")
     elif first == second:
         print(f"\nDurrang! Ikkimiz ham yutdik! \nSiz ham, men ham {second} martadan xato qildik.")
+
+
+while True:    
+    starting = input("O'yini boshlashga tayyormisiz? Ha(1) yoki Yo'q(0)\n>>>>")
+    if starting.title == "Ha" or starting.title == "Xa" or starting == "1":
+        first = son_top()
+        second = pc_top()
+        winner()
+    else:
+        print("O'yin yakunladi.")
+        break     
+        
+    yakun = input("\n\nYana o'ynaymizmi ? Ha(1) yoki Yo'q(0)\n>>>>")
+    if yakun.title == "Ha" or yakun.title =="Xa" or yakun =="1":
+        print("Bo'lmasam qayta o'ynaymiz. Qani boshladik.\n\n")
+        first = son_top()
+        second = pc_top()
+        winner()
+    else:
+        print("O'yin yakunlandi. Ishtirokingiz uchun rahmat !!!")
+        break
